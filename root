@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Partner with Us</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            line-height: 1.6;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f4;
+            color: #333;
+        }
+        .container {
+            max-width: 800px;
+            margin: 50px auto;
+            padding: 20px;
+            background: #fff;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+        h1 {
+            text-align: center;
+            color: #0073e6;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Partner with Us</h1>
+        <p>We need your expertise to help solve logistical challenges in the online auction industry!</p>
+        <p>Remote online buyers are often deterred from participating in thousands of auctions each year due to the complexities of coordinating pick-up, loading/unloading, packing, and shipping from local auction houses.</p>
+        <p>Auction Assist aims to establish relationships between auction websites, online buyers, and local logistic services to simplify and streamline the post-auction experience.</p>
+        <p>For a 5% referral fee, we will connect your local services with our online auction integration software, providing access to a vast network of remote online auction buyers seeking your services from across the country.</p>
+    </div>
+</body>
+</html>
