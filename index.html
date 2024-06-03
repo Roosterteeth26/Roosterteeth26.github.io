@@ -51,4 +51,29 @@
     <!-- Existing footer -->
 </body>
 
+<script>
+    async function fetchExcelData(url) {
+        const response = await fetch(url);
+        const arrayBuffer = await response.arrayBuffer();
+        const workbook = XLSX.read(arrayBuffer, { type: 'array' });
+        const firstSheet = workbook.Sheets[workbook.SheetNames[0]];
+        const data = XLSX.utils.sheet_to_json(firstSheet, { header: 1 });
+        return data;
+    }
+
+    async function calculateQuote() {
+        const service = document.getElementById('service').value;
+        const data = await fetchExcelData('https://your-repo-url/quotes.xlsx'); // replace with your actual file URL
+        
+        let price = 0;
+        for (let i = 1; i < data.length; i++) {
+            if (data[i][0] === service) {
+                price = data[i][1];
+                break;
+            }
+        }
+        
+        document.getElementById('quote-result').innerText = `The quote for ${service} is $${price}`;
+    }
+</script>
 
