@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact Us</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            line-height: 1.6;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f4;
+            color: #333;
+        }
+        .container {
+            max-width: 800px;
+            margin: 50px auto;
+            padding: 20px;
+            background: #fff;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+        h1 {
+            text-align: center;
+            color: #0073e6;
+        }
+        footer {
+            text-align: center;
+            margin-top: 20px;
+            padding: 10px;
+            background-color: #0073e6;
+            color: white;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Contact Us</h1>
+        <p>Where The Magic Happens:</p>
+        <form>
+            <label for="name">Name:</label>
+            <input type="text" id="name" name="name" required><br><br>
+            <label for="email">Email:</label>
+            <input type="email" id="email" name="email" required><br><br>
+            <label for="message">Message:</label><br>
+            <textarea id="message" name="message" rows="4" required></textarea><br><br>
+            <input type="submit" value="Submit">
+        </form>
+    </div>
+    <footer>
+        &copy; 2024 Auction Assist. All rights reserved.
+    </footer>
+</body>
+</html>
+<body>
+    <div class="container">
+        <nav>
+            <a href="index.html">Home</a> |
+            <a href="about.html">About</a> |
+            <a href="services.html">Services</a> |
+            <a href="contact.html">Contact</a>
+        </nav>
+        <h1>Partner with Us</h1>
+        <!-- Existing content -->
+    </div>
+    <!-- Existing footer -->
+</body>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/xlsx/0.16.9/xlsx.full.min.js"></script>
+<div class="container">
+    <h1>Quote Calculator</h1>
+    <form id="quote-form">
+        <label for="service">Service:</label>
+        <select id="service" name="service">
+            <option value="Handling">Handling</option>
+            <option value="Packaging">Packaging</option>
+            <option value="Transport (local)">Transport (local)</option>
+            <option value="Transport (remote)">Transport (remote)</option>
+        </select>
+        <br><br>
+        <button type="button" onclick="calculateQuote()">Calculate Quote</button>
+    </form>
+    <p id="quote-result"></p>
+</div>
