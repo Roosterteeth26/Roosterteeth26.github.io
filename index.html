@@ -77,3 +77,76 @@
     }
 </script>
 
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Quote Calculator</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            line-height: 1.6;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f4;
+            color: #333;
+        }
+        .container {
+            max-width: 800px;
+            margin: 50px auto;
+            padding: 20px;
+            background: #fff;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+        h1 {
+            text-align: center;
+            color: #0073e6;
+        }
+    </style>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/xlsx/0.16.9/xlsx.full.min.js"></script>
+</head>
+<body>
+    <div class="container">
+        <h1>Quote Calculator</h1>
+        <form id="quote-form">
+            <label for="service">Service:</label>
+            <select id="service" name="service">
+                <option value="Handling">Handling</option>
+                <option value="Packaging">Packaging</option>
+                <option value="Transport (local)">Transport (local)</option>
+                <option value="Transport (remote)">Transport (remote)</option>
+            </select>
+            <br><br>
+            <button type="button" onclick="calculateQuote()">Calculate Quote</button>
+        </form>
+        <p id="quote-result"></p>
+    </div>
+    <script>
+        async function fetchExcelData(url) {
+            const response = await fetch(url);
+            const arrayBuffer = await response.arrayBuffer();
+            const workbook = XLSX.read(arrayBuffer, { type: 'array' });
+            const firstSheet = workbook.Sheets[workbook.SheetNames[0]];
+            const data = XLSX.utils.sheet_to_json(firstSheet, { header: 1 });
+            return data;
+        }
+
+        async function calculateQuote() {
+            const service = document.getElementById('service').value;
+            const data = await fetchExcelData('https://your-repo-url/quotes.xlsx'); // replace with your actual file URL
+            
+            let price = 0;
+            for (let i = 1; i < data.length; i++) {
+                if (data[i][0] === service) {
+                    price = data[i][1];
+                    break;
+                }
+            }
+            
+            document.getElementById('quote-result').innerText = `The quote for ${service} is $${price}`;
+        }
+    </script>
+</body>
+</html>
